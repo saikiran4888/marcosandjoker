@@ -281,12 +281,5 @@ async def help(ctx):
     embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(author, embed=embed)
     
- 
-@client.command(pass_context = True)
-@commands.has_permission(administrator=True)
-async def announce(ctx, channel: discord.channel=None, *, msg: str):
-    message = "{}".format(msg)
-    await client.send_message(channel, message)
-
 
 client.run(os.getenv('Token'))
