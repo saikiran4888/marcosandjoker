@@ -285,7 +285,8 @@ async def help(ctx):
 @client.command(pass_context = True)
 @commands.has_permission(administrator=True)
 async def announce(ctx, channel: discord.channel=None, *, msg: str):
-    await client.send_message(channel, msg)
+    message = "{}".format(msg)
+    await client.send_message(channel, message)
 
 
 client.run(os.getenv('Token'))
