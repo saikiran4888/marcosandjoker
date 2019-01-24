@@ -281,5 +281,16 @@ async def help(ctx):
     embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(author, embed=embed)
     
+    
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True) 
+async def announce(ctx, channel: discord.Channel=None, *, msg: str):
+    if channel is None:
+        await client.say(" ```Proper usage is\n\nannounce<channel><matter>```")
+    else:
+        embed=discord.Embed(title="Announcement", description="{}".format(msg), color = 0XFF69B4)
+        await client.send_message(channel, embed=embed)
+        await client.delete_message(ctx.message)
+    
 
 client.run(os.getenv('Token'))
