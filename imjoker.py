@@ -280,6 +280,12 @@ async def help(ctx):
     embed.set_footer(text=f'Requested by {ctx.message.author.name}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(author, embed=embed)
+    
+ 
+@client.command(pass_context = True)
+@commands.has_permission(administrator=True)
+async def announce(ctx, channel: discord.channel=None, *, msg: str):
+    await client.send_message(channel, msg)
 
 
 client.run(os.getenv('Token'))
