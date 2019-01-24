@@ -214,7 +214,7 @@ async def serverinvite(ctx):
     
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
-async def announce(ctx, matter):
+async def announcement(ctx, matter):
     await client.send_message(ctx.message.channel, matter)
     
 @client.command(pass_context = True)
