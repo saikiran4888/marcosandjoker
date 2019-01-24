@@ -289,7 +289,6 @@ async def announce(ctx, channel: discord.Channel=None, *, msg: str):
         await client.say(" ```Proper usage is\n\nannounce<channel><matter>```")
     else:
         await client.send_message(channel, msg)
-        await client.delete_message(ctx.message)
     
 
 client.run(os.getenv('Token'))
