@@ -286,7 +286,4 @@ async def announce(ctx, channel: discord.Channel=None, *, msg: str):
         else:
             await client.send_message(channel, msg)
             
-
-    
-
 client.run(os.getenv('Token'))
