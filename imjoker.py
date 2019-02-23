@@ -287,10 +287,7 @@ async def announce(ctx, channel: discord.Channel=None, *, msg: str):
         await client.send_message(channel, msg)
   
         
-@client.event
-async def on_message(message):
-    if message.content == "Hii":
-        await client.send_message(message.channel, "Hello, How was your day? {}".format(message.author.mention))
+
 
                                   
                                   
