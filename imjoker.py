@@ -283,7 +283,13 @@ async def help(ctx):
 async def announce(ctx, channel: discord.Channel=None, *, msg: str):
     if channel is None:
         await client.say(" ```Proper usage is\n\nannounce<channel><matter>```")
-        else:
-            await client.send_message(channel, msg)
-            
+    else:
+        await client.send_message(channel, msg)
+        
+@client.event
+async def on_message(message):
+    if message.content == "Hii":
+        await client.send_message(message.channel, "Hello, How was your day? {}".format(message.author.mention)
+                                  
+                                  
 client.run(os.getenv('Token'))
