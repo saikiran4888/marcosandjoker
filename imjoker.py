@@ -278,27 +278,28 @@ async def help(ctx):
     await client.send_message(author, embed=embed)
     
     
-@client.command(pass_context = True)
-@commands.has_permissions(administrator=True) 
-async def announce(ctx, channel: discord.Channel=None, *, msg: str):
-    if channel is None:
-        await client.say(" ```Proper usage is\n\nannounce<channel><matter>```")
-    else:
-        await client.send_message(channel, msg)
-@client.event
-async def on_message(message):
-    if message.content == 'Hii':
-        await client.send_message(message.channel, "Hello, How was your day? {}".format(message.author.mention))
+#@client.command(pass_context = True)
+#@commands.has_permissions(administrator=True) 
+#async def announce(ctx, channel: discord.Channel=None, *, msg: str):
+ #   if channel is None:
+ #      await client.say(" ```Proper usage is\n\nannounce<channel><matter>```")
+  #  else:
+   #     await client.send_message(channel, msg)
+    #  
+#@client.event
+#async def on_message(message):
+ #   if message.content == 'Hii':
+  #      await client.send_message(message.channel, "Hello, How was your day? {}".format(message.author.mention))
         
-@client.event
-async def on_message(message):
-    if message.content == 'Hlo':
-        await client.send_message(message.channel, "Hello, How are you? {}".format(message.author.mention))
+#@client.event
+#async def on_message(message):
+#    if message.content == 'Hlo':
+ #       await client.send_message(message.channel, "Hello, How are you? {}".format(message.author.mention))
         
-@client.event
-async def on_message(message):
-    if message.content == 'Hi':
-        await client.send_message(message.channel, "Hello, How was your day? {}".format(message.author.mention)) 
+#@client.event
+#async def on_message(message):
+ #   if message.content == 'Hi':
+  #      await client.send_message(message.channel, "Hello, How was your day? {}".format(message.author.mention))
     
 
 client.run(os.getenv('Token'))
