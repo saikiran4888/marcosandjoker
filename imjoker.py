@@ -286,7 +286,13 @@ async def announce(ctx, channel: discord.Channel=None, *, msg: str):
     else:
         await client.send_message(channel, msg)
   
-        
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def spam(ctx, count: int, *, spamtxt: str):
+    await client.delete_message(ctx.message)
+    for i in range(count):
+        await asyncio.sleep(0.5)
+        await  client.say(spamtxt)
 
 
                                   
