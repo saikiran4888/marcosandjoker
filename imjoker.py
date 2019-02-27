@@ -205,7 +205,7 @@ async def meme(ctx):
 
 @client.command(pass_context = True)
 async def serverinvite(ctx):
-    link = "**Thanks for joining in our server.... Invite your friends and tell them join the party too** \n https://discord.gg/gER47Jw"
+    link = "**Thanks for joining in our server.... Invite your friends and tell them join the party too** \n https://discord.gg/hhmfxW3"
     await client.send_message(ctx.message.channel, link)
     
 @client.command(pass_context = True)
