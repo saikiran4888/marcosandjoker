@@ -293,6 +293,25 @@ async def spam(ctx, count: int, *, spamtxt: str):
     for i in range(count):
         await asyncio.sleep(0.5)
         await  client.say(spamtxt)
+        
+@client.command(pass_context = True)
+async def test(ctx):
+    Moderator = "Type Moderator here...."
+    channel = client.get_channel('515990320631250965')
+    ques1 = "Just kidding... Idk whether you typed moderator but It's okay...."
+    await client.send_message(ctx.message.channel, " :incoming_envelope:  A dm is sent to ya! Check it now...")
+    await client.send_message(ctx.message.author, Moderator)
+    response = await client.wait_for_message(author=ctx.message.author, content=None)
+    await client.send_message(ctx.message.author, ques1)
+    response2 = await client.wait_for_message(author=ctx.message.author, content=None)
+    await client.send_message(ctx.message.author, "Would you like to submit test report? 'type Yes or No (Case sensitive)'")
+    response3 = await client.wait_for_message(author=ctx.message.author, content=None)
+    if response3.content == 'Yes':
+        matter = "Q1: Type 'Moderator' here.... \n Ans: {} \n Q2: Just kidding... Idk whether you typed moderator but It's okay.... \n Ans: {} \n Test was conducted by {}".format(response.content, response2.content, ctx.message.author)
+        await client.send_message(channel, matter)
+        await client.send_message(ctx.message.author, "Thanks for being part in our test cmd...")
+    elif response3.content == 'No':
+        await client.send_message(ctx.message.author, "Your test results is not submitted... Anyway thanks for participating")        
 
 
                                   
