@@ -296,8 +296,7 @@ async def spam(ctx, count: int, *, spamtxt: str):
         
 @client.command(pass_context = True)
 async def test(ctx):
-    channel2 = client.get_channel('515990320631250965')
-    channel = client.get_channel('515990443687936002')
+    channel2 = client.get_channel('551494657704591370')
     embed = discord.Embed(title="Notification....", description="The application for the role is sent to your dm...", color=0XFF69B4)
     embed.add_field(name="Answer all the questions correctly without any incorrect info.... All the best...", value=None, inline=True)
     embed1 = discord.Embed(title="1.Enter your discord name & tag:", description=None, color=0XFF69B4)
@@ -351,8 +350,8 @@ async def test(ctx):
         embedlog.add_field(name="10.In case of any dispute between two members in a server, how do you think will you handle it?", value=ans10.content, inline=False)
         embedlog.add_field(name="Name of applicant:", value=ctx.message.author, inline=True)
         embedlog.add_field(name="Date of Application", value=datetime.datetime.now().date(), inline=True)
-        await client.send_message(channel, embed=embedlog)
-    elif confirmreply.content == 'NO':
+        await client.send_message(channel2, embed=embedlog)
+    elif confirmreply.content == 'No':
         await client.send_message(ctx.message.author, embed=embedno)        
 
 
