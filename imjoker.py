@@ -338,7 +338,7 @@ async def apply(ctx):
     await client.send_message(ctx.message.author, embed=embed11)
     ans11= await client.wait_for_message(author=ctx.message.author, content=None)
     await client.send_message(ctx.message.author, embed=embed12)
-    ans12 = await client.wait_for_message(author=ctx.messasge.author, content=None)
+    ans12 = await client.wait_for_message(author=ctx.message.author, content=None)
     await client.send_message(ctx.message.author, embed=embedconfirm)
     confirmreply = await client.wait_for_message(author=ctx.message.author, content=None)
     if confirmreply.content == 'Yes':
