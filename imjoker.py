@@ -295,7 +295,7 @@ async def spam(ctx, count: int, *, spamtxt: str):
         await  client.say(spamtxt)
         
 @client.command(pass_context = True)
-async def test(ctx):
+async def apply(ctx):
     channel2 = client.get_channel('551494657704591370')
     embed = discord.Embed(title="Notification....", description="The application for the role is sent to your dm...", color=0XFF69B4)
     embed.add_field(name="Answer all the questions correctly without any incorrect info.... All the best...", value=None, inline=True)
@@ -309,6 +309,8 @@ async def test(ctx):
     embed8 = discord.Embed(title="8.Do you have any past experience as a moderator in any server?", description=None, color=0XFF69B4)
     embed9 = discord.Embed(title="9.Do you have experience with bots like MEE6,Dyno Etc.,?", description=None, color=0XFF69B4)
     embed10 = discord.Embed(title="10.In case of any dispute between two members in a server, how do you think will you handle it?", description=None, color=0XFF69B4)
+    embed11 = discord.Embed(title="11.What will you do in case the server being raided?", description=None, color=0XFF69B4)
+    embed12 = discord.Embed(title="12.What can you do to make server more active and engaging?", description=None, color=0XFF69B4)
     embedconfirm = discord.Embed(title="If you want to submit application, type 'Yes'. If you don't want to submit application, type 'No' (Case sensitive)", description=None, color=0XFF69B4)
     embedyes = discord.Embed(title="Your application is submitted... Wait for the results and thank you being part of this process...", description=None, color=0XFF69B4)
     embedno = discord.Embed(title="Your application is not submitted... If you want to apply again feel free to apply... ", description=None, color=0XFF69B4)
@@ -333,6 +335,10 @@ async def test(ctx):
     ans9 = await client.wait_for_message(author=ctx.message.author, content=None)
     await client.send_message(ctx.message.author, embed=embed10)
     ans10 = await client.wait_for_message(author=ctx.message.author, content=None)
+    await client.send_message(ctx.message.author, embed=embed11)
+    ans11= await client.wait_for_message(author=ctx.message.author, content=None)
+    await client.send_message(ctx.message.author, embed=embed12)
+    ans12 = await client.wait_for_message(author=ctx.messasge.author, content=None)
     await client.send_message(ctx.message.author, embed=embedconfirm)
     confirmreply = await client.wait_for_message(author=ctx.message.author, content=None)
     if confirmreply.content == 'Yes':
@@ -348,8 +354,10 @@ async def test(ctx):
         embedlog.add_field(name="8.Do you have any past experience as a moderator in any server?", value=ans8.content, inline=False)
         embedlog.add_field(name="9.Do you have experience with bots like MEE6,Dyno Etc.,?", value=ans9.content, inline=False)
         embedlog.add_field(name="10.In case of any dispute between two members in a server, how do you think will you handle it?", value=ans10.content, inline=False)
-        embedlog.add_field(name="Name of applicant:", value=ctx.message.author, inline=True)
-        embedlog.add_field(name="Date of Application", value=datetime.datetime.now().date(), inline=True)
+        embedlog.add_field(name="11.What will you do in case the server being raided?", value=ans11.content, inline=False)
+        embedlog.add_field(name="12.What can you do to make server more active and engaging?", value=ans12.content, inline=False)
+        embedlog.add_field(name="Name of applicant:", value=ctx.message.author)
+        embedlog.add_field(name="Date of Application", value=datetime.datetime.now().date())
         await client.send_message(channel2, embed=embedlog)
     elif confirmreply.content == 'No':
         await client.send_message(ctx.message.author, embed=embedno)        
