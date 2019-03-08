@@ -373,6 +373,130 @@ async def apply(ctx):
             await client.send_message(ctx.message.author, embed=embedno)
     elif start.reaction.emoji == '❎':
         await client.send_message(ctx.message.author, embed=embedstartno)
+        
+@client.command(pass_context=True)
+async def rule1(ctx):
+    rule1 = "**Server rule 1: Follow the discord ToS. Any violations of the terms of service will result in an immediate ban! (Ban) The ToS can be found here: https://discordapp.com/terms **"
+    await client.send_typing(ctx.message.channel)
+    await client.send_message(ctx.message.channel, rule1)
+
+@client.command(pass_context=True)
+async def rule2(ctx):
+    rule2= "** Server rule 2: What happens in Reformed stays in Reformed. Don't talk about how this server is better and vice versa, don't talk about the mods and how they are bad, dont ask me for unbans, dont talk shit about the members there, etc etc. (Warn/mute, ban)**"
+    await client.send_typing(ctx.message.channel)
+    await client.send_message(ctx.message.channel, rule2)
+
+@client.command(pass_context=True)
+async def rule3(ctx):
+    channel = ctx.message.channel
+    rule3 = "**Server rule 3: Swearing is allowed, but please keep it to a limit! Usage of banned words is not allowed! List is found here: https://cdn.discordapp.com/attachments/414216301771358208/454122060751437826/Screen_Shot_2018-05-23_at_6.03.31_PM-1.png (Warn, mute, ban)**"
+    await client.send_typing(channel)
+    await client.send_message(Channel, rule3)
+
+@client.command(pass_context=True)
+async def rule4(ctx):
+    channel = ctx.message.channel
+    channel2 = client.get_channel('525391238472663071')
+    rule4 = "**Server rule 4: Image posting is not allowed anywhere except in {}. Posting the same message/emote as other users repeatedly is not allowed. (Warn, mute, kick/ban) Excessive spamming of random characters/images is categorized as a raid and will lead to a (Ban)**".format(channel2.mention)
+    await client.send_typing(channel)
+    await client.send_message(channel, rule4)
+
+@client.command(pass_context=True)
+async def rule5(ctx):
+    channel = ctx.message.channel
+    rule5 = "**Server rule 5: Rudeness towards other members or trolling is not allowed! (Warn, mute, kick/ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule5)
+
+@client.command(pass_context=True)
+async def rule6(ctx):
+    rule6 = "**Server rule 6: Harrassment is not allowed here! (Mute, kick/ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule6)
+
+@client.command(pass_context=True)
+async def rule7(ctx):
+    channel = ctx.message.channel
+    rule7 = "**Server rule 7: Disrespect towards members is not allowed! (Warn/mute, kick/ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule7)
+
+@client.command(pass_context=True)
+async def rule8(ctx):
+    channel = ctx.message.channel
+    rule8 = "**Server rule 8: Impersonation of other members is not allowed! (Warn, kick/ban)**"
+    await clinet.send_typing(channel)
+    await client.send_message(channel, rule8)
+
+@client.command(pass_context=True)
+async def rule9(ctx):
+    channel= ctx.message.channel
+    rule9 = "**Server rule 9: Discriminatory behavior like racism and sexism is not allowed here. (Warn/mute, ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule9)
+
+@client.command(pass_context=True)
+async def rule10(ctx):
+    channel = ctx.message.channel
+    rule10 = "**Server rule 10: NSFW (even if the image is cropped or blurred) or inappropriate images in this server are not allowed anywhere. (Warn, kick/ban: Ban for illegal content)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule10)
+
+@client.command(pass_context=True)
+async def rule11(ctx):
+    channel = ctx.message.channel
+    rule11 = "**Server rule 11: DDoSing or revealing personal info about a member without their consent is not allowed. (Kick/ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule11)
+
+@client.command(pass_context=True)
+async def rule12(ctx):
+    channel = ctx.message.channel
+    rule12 = "**Server rule 12: Vulgar or inappropriate names/nicknames are not allowed (warn/kick/ban**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule12)
+
+@client.command(pass_context=True)
+async def rule13(ctx):
+    channel = ctx.message.channel
+    rule13 = "**Server rule 13: Advertising in this server without staff permission is not allowed! (Warn, kick/ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule13)
+
+@client.command(pass_context=True)
+async def rule14(ctx):
+    channel = ctx.message.channel
+    rule14 = "**Server rule 14: Joking about sensitive subjects such as rape, suicide/self-harm, death, serious illnesses, etc is not allowed!  (Warn, mute, ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule14)
+
+@client.command(pass_context=True)
+async def rule15(ctx):
+    channel = ctx.message.channel
+    rule15 = "**Server tule 15: DM Advertising is not allowed at all! (Warn, ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule15)
+
+@client.command(pass_context=True)
+async def rule16(ctx):
+    channel = ctx.message.channel
+    rule16 = "**Server rule 16: Bullying members in any way or form is not allowed (Warn, ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule16)
+
+@client.command(pass_context=True)
+async def rule17(ctx):
+    channel = ctx.message.channel
+    rule17 = "**Server rule 17: Leaving the server to evade mutes, warns, etc will result in double the punishment! (Warn/Mute x2, Ban)**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule17)
+
+@client.command(pass_context=True)
+async def rule18(ctx):
+    channel = ctx.message.channel
+    rule18 = "**Server rule 18: Alternative Accounts are not allowed! Only Owners and Admins are allowed to have alts for testing purposes mainly. Those caught with an Alternative Account may result in both accounts being Banned.**"
+    await client.send_typing(channel)
+    await client.send_message(channel, rule18)
 
 
                                   
