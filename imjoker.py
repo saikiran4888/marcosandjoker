@@ -426,7 +426,7 @@ async def rule7(ctx):
 async def rule8(ctx):
     channel = ctx.message.channel
     rule8 = "**Server rule 8: Impersonation of other members is not allowed! (Warn, kick/ban)**"
-    await clinet.send_typing(channel)
+    await client.send_typing(channel)
     await client.send_message(channel, rule8)
 
 @client.command(pass_context=True)
