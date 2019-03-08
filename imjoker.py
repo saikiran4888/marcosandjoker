@@ -410,6 +410,7 @@ async def rule5(ctx):
 
 @client.command(pass_context=True)
 async def rule6(ctx):
+    channel = ctx.message.channel
     rule6 = "**Server rule 6: Harrassment is not allowed here! (Mute, kick/ban)**"
     await client.send_typing(channel)
     await client.send_message(channel, rule6)
