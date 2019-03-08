@@ -474,7 +474,7 @@ async def rule14(ctx):
 @client.command(pass_context=True)
 async def rule15(ctx):
     channel = ctx.message.channel
-    rule15 = "**Server tule 15: DM Advertising is not allowed at all! (Warn, ban)**"
+    rule15 = "**Server rule 15: DM Advertising is not allowed at all! (Warn, ban)**"
     await client.send_typing(channel)
     await client.send_message(channel, rule15)
 
