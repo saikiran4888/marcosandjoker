@@ -391,7 +391,7 @@ async def rule3(ctx):
     channel = ctx.message.channel
     rule3 = "**Server rule 3: Swearing is allowed, but please keep it to a limit! Usage of banned words is not allowed! List is found here: https://cdn.discordapp.com/attachments/414216301771358208/454122060751437826/Screen_Shot_2018-05-23_at_6.03.31_PM-1.png (Warn, mute, ban)**"
     await client.send_typing(channel)
-    await client.send_message(Channel, rule3)
+    await client.send_message(channel, rule3)
 
 @client.command(pass_context=True)
 async def rule4(ctx):
