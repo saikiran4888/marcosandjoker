@@ -507,6 +507,13 @@ async def todo(ctx, *, msg:str):
     message = await client.send_message(channel, "**OBJECTIVE** \n _{}_".format(msg))
     await client.add_reaction(message, emoji='✅')
     await client.add_reaction(message, emoji='❎')
+    
+@client.command(pass_context=True)
+async def suggest(ctx, *, msg: str):
+    channel = client.get_channel('517396036902191104')
+    message = await client.send_message(channel, "** {} Suggested : {} **".format(ctx.message.author.mention, msg))
+    await client.add_reaction(message, emoji='✅')
+    await client.add_reaction(message, emoji='❎')
 
 
                                   
