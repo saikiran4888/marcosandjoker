@@ -295,6 +295,7 @@ async def spam(ctx, count: int, *, spamtxt: str):
         await  client.say(spamtxt)
         
 @client.command(pass_context = True)
+@commands.has_permissions(administration=True)
 async def apply(ctx):
     channel2 = client.get_channel('551494657704591370')
     embedstart = discord.Embed(title="You will be asked 12 questions total... If you still want to continue, react with :white_check_mark: ... If you don't want to continue, react with :negative_squared_cross_mark: ....", description=None, color=0XFF69B4)
@@ -498,6 +499,14 @@ async def rule18(ctx):
     rule18 = "**Server rule 18: Alternative Accounts are not allowed! Only Owners and Admins are allowed to have alts for testing purposes mainly. Those caught with an Alternative Account may result in both accounts being Banned.**"
     await client.send_typing(channel)
     await client.send_message(channel, rule18)
+    
+@client.command(pass_context=True)
+@commands.has_permissions(administrator=True)
+async def todo(ctx, *, msg:str):
+    channel = client.get_channel('521786915335176193')
+    message = await client.send_message(channel, "**OBJECTIVE** \n _{}_".format(msg))
+    await client.add_reaction(message, emoji='✅')
+    await client.add_reaction(message, emoji='❎')
 
 
                                   
