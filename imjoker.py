@@ -143,20 +143,6 @@ async def poll(ctx, question, *options:str):
             await client.edit_message(react_message, embed=embed)
 
 
-@client.event
-async def on_member_join(member):
-    channel = client.get_channel('515997744842932229')
-    text_channel = client.get_channel('516137272048091176')
-    msg = "**Welcome to {}... Don't forget to read rules at {}... and don't break any of them... We hope you a good stay here...**".format(member.server.name, text_channel.mention)
-    embed=discord.Embed(title=f"Welcome {member.name} to {member.server.name}", description=f"**Hope you'll be active here... Read rules at {text_channel.mention} channel and don't break any of them...**", color=0XFF69B4)
-    embed.set_thumbnail(url='https://media.giphy.com/media/OF0yOAufcWLfi/giphy.gif')
-    embed.add_field(name="__**Thanks for joining our server**__", value="We hope you a good stay here....")
-    embed.add_field(name="__**Time of joining**__", value=member.joined_at, inline=True)
-    embed.add_field(name="__**Joining position**__", value='{}'.format(str(member.server.member_count)), inline=True)
-    embed.set_footer(text="This bot is created by I'm Joker", icon_url='https://images-ext-1.discordapp.net/external/Dk4VE5l-ZiG1BjZpdw8sdnh7BKxg4wDx7wk52zwT63A/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/472128507150073871/7c6f4d51bb2f6a331f5fd0d9c5df0e5f.webp?width=536&height=536')
-    embed.timestamp = datetime.datetime.utcnow()
-    await client.send_message(member, msg)
-    await client.send_message(channel, embed=embed)
 
 @client.event
 async def on_member_remove(member):
@@ -165,6 +151,21 @@ async def on_member_remove(member):
     embed.set_thumbnail(url='https://media.giphy.com/media/UQaRUOLveyjNC/giphy.gif')
     embed.add_field(name="__**Members Remaining**__", value='{}'.format(str(member.server.member_count)), inline=True)
     embed.timestamp = datetime.datetime.utcnow()
+    await client.send_message(channel, embed=embed)
+    
+    @client.event
+async def on_member_join(member):
+    gettime = discord.utils.snowflake_time(member.id)
+    channel = client.get_channel('515997744842932229')
+    text_channel = client.get_channel('516137272048091176')
+    embed=discord.Embed(title=f"Welcome {member.name} to {member.server.name}", description=f"**Hope you'll be active here... Read rules at {text_channel.mention} channel and don't break any of them...**", color=0XFF69B4)
+    embed.set_thumbnail(url='https://media.giphy.com/media/OF0yOAufcWLfi/giphy.gif')
+    embed.add_field(name="__**Thanks for joining our server**__", value="We hope you a good stay here....")
+    embed.add_field(name="__**Time of joining**__", value=member.joined_at, inline=True)
+    embed.add_field(name="__**Joining position**__", value='{}'.format(str(member.server.member_count)), inline=True)
+    embed.add_field(name="__**User account created at**__", value=gettime.date(), inline=True)
+    embed.set_footer(text=member.name, icon_url=member.avatar_url)
+    embed.timestamp = datetime.datetime.utcnow().date()
     await client.send_message(channel, embed=embed)
 
 
@@ -277,15 +278,13 @@ async def movie(ctx, *, name:str=None):
 
 @client.command(pass_context = True)
 async def help(ctx):
-    author = ctx.message.author
-    matter = "{} **Check Your DM!!!** :incoming_envelope: ".format(author.mention)
     embed=discord.Embed(title="__Command Prefix__: %", description='', color=0XFF69B4)
     embed.add_field(name="__**Summary**__", value="**This is the official BOT of REFORMED server. You can't find this BOT anywhere than here. This BOT is made in memory of JOKER \n And this BOT can't be distributed to anyone \n \n \n**", inline=True)
     embed.add_field(name="__**Commands**__", value="__**Fun Commands**__ \n `quote` - Quote of Joker \n `fams` - Random DragonBall Z GIF \n `marvel` - Random Marvel GIF \n `dc` - Random DC GIF \n `joker` - Random Joker GIF (Tribute to Heath Ledger) \n`meme` - Random funny meme \n `movie <movie name>` - Gives info of the particular movie you have searched \n \n __**Bot and server releated commands**__ \n `botinfo` - Information about this BOT \n `serverinvite` - Server invitation link \n \n __**Misc Commands**__ \n `avatar` - Avatar of the user \n `avatar <user>` - Avatar of mentioned user \n \n __**Admin Commands**__ \n `poll` - Polling (Administrator) \n `askquestion` - Asking of funny question (Administrator) \n `announce <matter>` - To announce the entered matter (Administrator) \n \n **More Feautures coming soon...** \n \n __**BOT will be offline someties... That means we are updating BOT**__ \n **Thank you for using this BOT**")
     embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/516953091656908810/519072295080296469/Joker.png')
     embed.set_footer(text=f'Requested by {ctx.message.author.name}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
-    await client.send_message(author, embed=embed)
+    await client.send_message(ctx.message.channel, embed=embed)
     
     
 @client.command(pass_context = True)
