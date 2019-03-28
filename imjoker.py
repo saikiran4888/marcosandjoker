@@ -153,7 +153,7 @@ async def on_member_remove(member):
     embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(channel, embed=embed)
     
-    @client.event
+@client.event
 async def on_member_join(member):
     gettime = discord.utils.snowflake_time(member.id)
     channel = client.get_channel('515997744842932229')
