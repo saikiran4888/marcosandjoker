@@ -161,11 +161,11 @@ async def on_member_join(member):
     embed=discord.Embed(title=f"Welcome {member.name} to {member.server.name}", description=f"**Hope you'll be active here... Read rules at {text_channel.mention} channel and don't break any of them...**", color=0XFF69B4)
     embed.set_thumbnail(url='https://media.giphy.com/media/OF0yOAufcWLfi/giphy.gif')
     embed.add_field(name="__**Thanks for joining our server**__", value="We hope you a good stay here....")
-    embed.add_field(name="__**Time of joining**__", value=member.joined_at, inline=True)
+    embed.add_field(name="__**Time of joining**__", value=member.joined_at.date(), inline=True)
     embed.add_field(name="__**Joining position**__", value='{}'.format(str(member.server.member_count)), inline=True)
     embed.add_field(name="__**User account created at**__", value=gettime.date(), inline=True)
     embed.set_footer(text=member.name, icon_url=member.avatar_url)
-    embed.timestamp = datetime.datetime.utcnow().date()
+    embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(channel, embed=embed)
 
 
