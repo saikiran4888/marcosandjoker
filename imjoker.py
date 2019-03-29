@@ -304,7 +304,6 @@ async def spam(ctx, count: int, *, spamtxt: str):
         await  client.say(spamtxt)
         
 @client.command(pass_context = True)
-@commands.has_permissions(administration=True)
 async def apply(ctx):
     channel2 = client.get_channel('551494657704591370')
     embedstart = discord.Embed(title="You will be asked 12 questions total... If you still want to continue, react with :white_check_mark: ... If you don't want to continue, react with :negative_squared_cross_mark: ....", description=None, color=0XFF69B4)
