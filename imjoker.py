@@ -17,7 +17,7 @@ import aiohttp
 
 async def status_task():
     while True:
-        await client.change_presence(game=discord.Game(name='Destruction of Gotham City', type=3))
+        await client.change_presence(game=discord.Game(name='REFORMED COMMUNITY', type=1))
         await asyncio.sleep(5)
         await client.change_presence(game=discord.Game(name='Death of Batman', type=2))
         await asyncio.sleep(5)
