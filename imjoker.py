@@ -87,7 +87,7 @@ async def askquestion(ctx):
     
 @client.event
 async def on_message_delete(message):
-    if message.author is bot:
+    if message.author.bot:
         return
     
     else:
