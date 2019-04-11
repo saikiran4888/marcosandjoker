@@ -87,14 +87,18 @@ async def askquestion(ctx):
     
 @client.event
 async def on_message_delete(message):
-    channel2 = client.get_channel('557273459244269582')
-    matter = f"**Message sent by: {message.author.mention} deleted in {message.channel.mention} \n \n  {message.content}**"
-    embed = discord.Embed(title=f"{message.author.name}", description=matter, color=0XFF69BF)
-    embed.set_footer(text=f"Author {message.author.id}  | Message ID: {message.id}")
-    embed.timestamp = datetime.datetime.utcnow()
-    await client.send_message(channel2, embed=embed)
-
-
+    if message.author is bot:
+        return:
+        else:
+            channel2 = client.get_channel('557273459244269582')
+            matter = f"**Message sent by: {message.author.mention} deleted in {message.channel.mention} \n \n  {message.content}**"
+            embed = discord.Embed(title=f"{message.author.name}", description=matter, color=0XFF69BF)
+            embed.set_footer(text=f"Author {message.author.id}  | Message ID: {message.id}")
+            embed.timestamp = datetime.datetime.utcnow()
+            await client.send_message(channel2, embed=embed)
+    
+            
+            
 @client.command(pass_context = True)
 async def avatar(ctx, user: discord.Member=None):
     if user is None:
@@ -154,8 +158,8 @@ async def on_member_remove(member):
 @client.event
 async def on_member_join(member):
     gettime = discord.utils.snowflake_time(member.id)
-    channel = client.get_channel('515997744842932229')
-    text_channel = client.get_channel('516137272048091176')
+    channel = client.get_channel('565766644140474368')
+    text_channel = client.get_channel('565767003533737985')
     embed=discord.Embed(title=f"Welcome {member.name} to {member.server.name}", description=f"**Hope you'll be active here... Read rules at {text_channel.mention} channel and don't break any of them...**", color=0XFF69B4)
     embed.set_thumbnail(url='https://media.giphy.com/media/OF0yOAufcWLfi/giphy.gif')
     embed.add_field(name="__**Thanks for joining our server**__", value="We hope you a good stay here....")
