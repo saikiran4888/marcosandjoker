@@ -88,14 +88,15 @@ async def askquestion(ctx):
 @client.event
 async def on_message_delete(message):
     if message.author is bot:
-        return:
-        else:
-            channel2 = client.get_channel('557273459244269582')
-            matter = f"**Message sent by: {message.author.mention} deleted in {message.channel.mention} \n \n  {message.content}**"
-            embed = discord.Embed(title=f"{message.author.name}", description=matter, color=0XFF69BF)
-            embed.set_footer(text=f"Author {message.author.id}  | Message ID: {message.id}")
-            embed.timestamp = datetime.datetime.utcnow()
-            await client.send_message(channel2, embed=embed)
+        return
+    
+    else:
+        channel2 = client.get_channel('557273459244269582')
+        matter = f"**Message sent by: {message.author.mention} deleted in {message.channel.mention} \n \n  {message.content}**"
+        embed = discord.Embed(title=f"{message.author.name}", description=matter, color=0XFF69BF)
+        embed.set_footer(text=f"Author {message.author.id}  | Message ID: {message.id}")
+        embed.timestamp = datetime.datetime.utcnow()
+        await client.send_message(channel2, embed=embed)
     
             
             
