@@ -526,6 +526,7 @@ async def events(ctx, *, msg:str):
     await client.add_reaction(message, emoji='❎')
 
 
-                                  
-                                  
+  
+
+
 client.run(os.getenv('Token'))
