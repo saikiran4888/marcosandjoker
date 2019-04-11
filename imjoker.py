@@ -401,7 +401,7 @@ async def rule3(ctx):
 @client.command(pass_context=True)
 async def rule4(ctx):
     channel = ctx.message.channel
-    channel2 = client.get_channel('525391238472663071')
+    channel2 = client.get_channel('565770888449097748')
     rule4 = "**Server rule 4: Image posting is not allowed anywhere except in {}. Posting the same message/emote as other users repeatedly is not allowed. (Warn, mute, kick/ban) Excessive spamming of random characters/images is categorized as a raid and will lead to a (Ban)**".format(channel2.mention)
     await client.send_typing(channel)
     await client.send_message(channel, rule4)
