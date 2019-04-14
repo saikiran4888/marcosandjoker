@@ -150,11 +150,18 @@ async def poll(ctx, question, *options:str):
 @client.event
 async def on_member_remove(member):
     channel = client.get_channel('565768324252958720')
+    channel2 = client.get_channel('557273459244269582')
     embed=discord.Embed(title=f"Good bye {member.name}... Hope you'll come back again to {member.server.name}", description="Thank you for being with us all these times...", color=0XFF69B4)
     embed.set_thumbnail(url='https://media.giphy.com/media/UQaRUOLveyjNC/giphy.gif')
     embed.add_field(name="__**Members Remaining**__", value='{}'.format(str(member.server.member_count)), inline=True)
     embed.timestamp = datetime.datetime.utcnow()
+    embed2=discord.Embed(title="Member Left", description= member.mention, color=0XFF69B4)
+    embed2.set_thumbnail(url=member.avatar_url)
+    embed2.add_field(name="**Members Remaining", value=str(member.server.member_count), inline=True)
+    embed2.set_footer(text=f"ID: {member.id}", icon_url=member.avatar_url)
+    embed2.timestamp = datetime.datetime.utcnow()
     await client.send_message(channel, embed=embed)
+    await client.send_message(channel2, embed=embed2)
     
 @client.event
 async def on_member_join(member):
