@@ -157,7 +157,7 @@ async def on_member_remove(member):
     embed.timestamp = datetime.datetime.utcnow()
     embed2=discord.Embed(title="Member Left", description= member.mention, color=0XFF69B4)
     embed2.set_thumbnail(url=member.avatar_url)
-    embed2.add_field(name="**Members Remaining", value=str(member.server.member_count), inline=True)
+    embed2.add_field(name="**Members Remaining**", value=str(member.server.member_count), inline=True)
     embed2.set_footer(text=f"ID: {member.id}", icon_url=member.avatar_url)
     embed2.timestamp = datetime.datetime.utcnow()
     await client.send_message(channel, embed=embed)
