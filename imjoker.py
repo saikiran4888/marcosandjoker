@@ -575,6 +575,4 @@ async def events(ctx, *, msg:str):
 
 
   
-
-
 client.run(os.getenv('Token'))
