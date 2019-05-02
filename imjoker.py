@@ -572,6 +572,26 @@ async def events(ctx, *, msg:str):
     message = await client.send_message(channel, "** {} Suggested : {} **".format(ctx.message.author.mention, msg))
     await client.add_reaction(message, emoji='✅')
     await client.add_reaction(message, emoji='❎')
+    
+
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def lock(ctx, Role:discord.Role= None, channel:discord.Channel=None):
+    channel2 = client.get_channel(channel.id)
+    overwrite = discord.PermissionOverwrite()
+    overwrite.send_messages = False
+    overwrite.read_messages = False
+    overwrite.read_message_history = False
+    await client.edit_channel_permissions(channel, Role, overwrite = overwrite)
+
+@client.command(pass_context = True)
+@commands.has_permissions(administrator=True)
+async def unlock(ctx, Role:discord.Role=None, Channel:discord.Channel=None):
+    overwrite = discord.PermissionOverwrite()
+    overwrite.send_messages = True
+    overwrite.read_messages = True
+    overwrite.read_message_history = True
+    await client.edit_channel_permissions(Channel, Role, overwrite = overwrite)
 
 
   
