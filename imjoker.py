@@ -583,6 +583,7 @@ async def lock(ctx, Role:discord.Role= None, channel:discord.Channel=None):
     overwrite.read_messages = False
     overwrite.read_message_history = False
     await client.edit_channel_permissions(channel, Role, overwrite = overwrite)
+    await client.send_message(ctx.message.channel, f"**{channel.mention} has been locked for `{Role.name}`**"
 
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
