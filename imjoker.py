@@ -45,7 +45,7 @@ async def quote(ctx):
     embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(ctx.message.channel, embed=embed)
     
- @client.command(pass_context = True)
+@client.command(pass_context = True)
 async def hii(ctx):
     await client.send_message(ctx.message.channel, f"**Hello {ctx.message.author.mention}**")
 
