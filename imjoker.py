@@ -44,6 +44,10 @@ async def quote(ctx):
     embed.set_footer(text=f'Requested by {ctx.message.author}', icon_url=f'{ctx.message.author.avatar_url}')
     embed.timestamp = datetime.datetime.utcnow()
     await client.send_message(ctx.message.channel, embed=embed)
+    
+ @client.command(pass_context = True)
+async def hii(ctx):
+    await client.send_message(ctx.message.channel, f"**Hello {ctx.message.author.mention}**")
 
 @client.command(pass_context = True)
 async def botinfo(ctx):
@@ -583,7 +587,7 @@ async def lock(ctx, Role:discord.Role= None, channel:discord.Channel=None):
     overwrite.read_messages = False
     overwrite.read_message_history = False
     await client.edit_channel_permissions(channel, Role, overwrite = overwrite)
-    await client.send_message(ctx.message.channel, f"**{channel.mention} has been locked for `{Role.name}`**"
+    await client.send_message(ctx.message.channel, f"**{channel.mention} has been locked for `{Role.name}`**")
 
 @client.command(pass_context = True)
 @commands.has_permissions(administrator=True)
