@@ -569,6 +569,7 @@ async def suggest(ctx, *, msg: str):
     message = await client.send_message(channel, "** {} Suggested : {} **".format(ctx.message.author.mention, msg))
     await client.add_reaction(message, emoji='✅')
     await client.add_reaction(message, emoji='❎')
+    await client.delete_message(ctx.message)
     
 @client.command(pass_context=True)
 async def events(ctx, *, msg:str):
