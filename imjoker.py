@@ -570,7 +570,7 @@ async def suggest(ctx, *, msg: str):
     await client.add_reaction(message, emoji='✅')
     await client.add_reaction(message, emoji='❎')
     await client.delete_message(ctx.message)
-    await client.send_message(ctx.message.channel, f"{ctx.message.author.mention}**, We've recieved your suggestion and we'll take action about it soon... Again, Thank you for suggesting and have a nice day...**")
+    await client.send_message(ctx.message.channel, f"**{ctx.message.author.name}, We've recieved your suggestion and we'll take action about it soon... Again, Thank you for suggesting and have a nice day...**")
     
 @client.command(pass_context=True)
 async def events(ctx, *, msg:str):
