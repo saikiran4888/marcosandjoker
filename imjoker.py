@@ -599,6 +599,10 @@ async def unlock(ctx, Role:discord.Role=None, Channel:discord.Channel=None):
     overwrite.read_messages = True
     overwrite.read_message_history = True
     await client.edit_channel_permissions(Channel, Role, overwrite = overwrite)
+    
+@client.command(pass_context = True)
+async def hlo(ctx):
+    await client.send_message(ctx.message.channel, "**This bot is running succesfully**")
 
 
   
