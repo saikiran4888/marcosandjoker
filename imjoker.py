@@ -607,4 +607,4 @@ async def hlo(ctx):
     
 
   
-client.run(os.getenv('Token'))
+client.run(os.getenv('TOKEN'))
